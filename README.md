@@ -1,5 +1,13 @@
 # multi-step-form
-Multi-step form powered by React
+Multi-step form powered by React. The form has three steps
+- Step 1: First/last name
+- Step 2: Gender and email
+- Step three: Review of the info and submit
+
+This is a purely front-end form, so submitting the form doesn't actually do anything.
+It just prints a message on screen.
+
+----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
