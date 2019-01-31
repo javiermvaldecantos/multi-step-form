@@ -1,0 +1,103 @@
+.multiStepForm--progressBar {
+    display: block;
+    margin-bottom: 4rem;
+    width: 100%;
+    height: 10px;
+    background: grey;
+}
+
+.multiStepForm--progress {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 0;   /* this will be overriden by inline styling */
+    height: 10px;
+    transition: width 0.4s;
+    background: black;
+}
+
+.multiStepForm--stepHeader {
+    display: table;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.multiStepForm--backLink {   /* link to go to the previous step, present at the top of every step (except the first step of course) */
+    display: table-cell;
+    padding-right: 4rem;
+    width: 1%;
+    font-size: 16px;
+    text-decoration: none !important;
+}
+.multiStepForm--backLink:before {
+    content: '<';
+    vertical-align: inherit;
+    font-size: 14px;
+    color: grey;
+    display: inline;
+    position: static;
+    padding-right: 5px;
+
+}
+
+.multiStepForm--skipLink {   /* link to go to the previous step, present at the top of every step (except the first step of course) */
+    display: table-cell;
+    text-align: right;
+    font-size: 16px;
+    text-decoration: none !important;
+    color: grey;
+}
+
+.multiStepForm--step-1 .multiStepForm--backLink {
+    display: none;  /* don't display a back button on the first step */
+}
+
+.multiStepForm--step-1 .multiStepForm--skipLink, .multiStepForm--step-8 .multiStepForm--skipLink {
+    display: none;  /* don't display skip button on the first and last step */
+}
+
+.multiStepForm--body {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 2rem 4rem;
+}
+
+div[class^="multiStepForm--step-"] {    /* this affects all <div/> whose class name starts with "multiStepForm--step-" */
+    position: absolute;
+    visibility: hidden; /* this is used not only to hide the step, but also to make its content not focusable using the keyboard. */
+    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.4s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+div[class^="multiStepForm--step-"].multiStepForm--currentStep { /* this only affects the current step, which will be the only visible step */
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+}
+
+.multiStepForm--footer {
+    padding: 0 4rem;
+}
+
+/* Default footer - only the 'next' and 'submit' buttons are displayed */
+.multiStepForm--footer .multiStepForm--backButton {
+    display: none;  /* back button is hidden by default in the footer */
+}
+
+.multiStepForm--footer .multiStepForm--nextButton, .multiStepForm--footer .multiStepForm--submitButton {
+    width: 100%;    /* the 'next' or 'submit' buttons take all the space of the form's footer */
+}
+
+/* Footer with back button */
+.multiStepForm--footer.multiStepForm--footerWithBackButton .multiStepForm--backButton {
+    display: block; /* 'back' button is displayed on the left side of the footer */
+    float: left;
+}
+
+.multiStepForm--footer.multiStepForm--footerWithBackButton .multiStepForm--nextButton, .multiStepForm--footer.multiStepForm--footerWithBackButton .multiStepForm--submitButton {
+    float: right;   /* 'next' and 'submit' buttons are displayed on the right side of the footer */
+}

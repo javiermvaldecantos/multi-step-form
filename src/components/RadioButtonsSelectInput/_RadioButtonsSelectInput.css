@@ -1,0 +1,67 @@
+.radioButtonsSelectInput {
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+	margin-bottom: 2rem;
+}
+
+.radioButtonsSelectInput input {
+	border:0 !important;
+	clip:rect(0 0 0 0) !important;
+	height:1px !important;
+	margin:-1px !important;
+	overflow:hidden !important;
+	padding:0 !important;
+	position:absolute !important;
+	width:1px !important;
+}
+
+.radioButtonsSelectInput._focused .radioButtonsSelectInput--label {
+	/* when the component is focused, the borders will be blue to show it to the user (this is really helpful if the user is moving using tab instead of the mouse) */
+	border-color: black;
+}
+
+.radioButtonsSelectInput--label {
+	color: black;
+	border: 1px solid grey;
+	border-left: none;	/* remove border left to avoid double borders */
+	padding: 1rem;
+	min-height: 48px;
+	height: 48px;
+
+	/* we put a delay on the border color change. */
+	/* This is necessary because when the user focuses on one radio input and then goes to another input of the same component, there's a small time in which the component gets out of focus. */
+	/* During this small time, the borders of the component get black and it looks ugly. Using this delay we avoid that. */
+	transition-property: border-color background;
+	transition-delay: 50ms;
+
+	/* make all the buttons have the same height */
+	display: table-cell;
+	vertical-align: middle;
+}
+.radioButtonsSelectInput--label:first-child {
+	border-left: 1px solid grey;	/* set border-left on the first element. The rest of the elements won't have border-left */
+}
+.radioButtonsSelectInput--label._selected {
+	background: black;
+	color: white;
+}
+
+.radioButtonsSelectInput--buttonText {
+	display: block;
+	text-align: center;
+}
+
+.radioButtonsSelectInput--buttonImagesWrapper {
+	padding-top: 1rem;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+.radioButtonsSelectInput--buttonImage {
+	  padding-left: 1rem;
+}
+.radioButtonsSelectInput--buttonImage:first-child {
+	padding-left: 0;
+}

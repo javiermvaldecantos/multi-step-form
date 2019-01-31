@@ -1,0 +1,22 @@
+.errorMessage {
+	color: red;
+    position: relative;
+    height: 0px; /* Avoid content from jumping when the error is displayed */
+    line-height: 1;
+    top: -1em;
+    white-space: nowrap; /* This can be overridden if needed in certain forms */
+    text-align: right;
+    font-size: 12px;
+}
+
+.errorMessage ul {
+    padding:0;
+    margin:0;
+    text-align: right;
+}
+
+.errorMessage ul li {
+    color: red;
+    list-style: none;
+    margin:0;
+}

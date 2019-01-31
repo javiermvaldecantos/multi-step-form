@@ -1,0 +1,84 @@
+.textInput--input {
+	
+	width:100%;
+	height:48px;
+	padding:6px 4px 6px 10px;
+	margin:0 0 2rem 0;
+	border:1px solid grey;
+	/*color: black;*/
+	background: white;
+	border-radius: 0;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.textInput--input:focus {
+    border-color: black;
+    outline:0;
+}
+
+/* --------- Validation style for inputs --------- */
+/* Note: The validation classes can be applied to either the parent container or the element itself */
+.textInput--input.valid, .valid .textInput--input {
+	border-color: green;
+	color: green;
+}
+.textInput--input.error, .error .textInput--input {
+	border-color: red;
+	color: red;
+}
+.textInput--input.readonly, .readonly .textInput--input, .textInput--input.disabled, .disabled .textInput--input, .textInput--input[disabled] {
+	border-color:#CDCDCF;
+	color:#fff;
+	cursor: not-allowed;
+	background-color:#CDCDCF;
+}
+
+.textInput--inputWrapper.animatedPlaceholder {	/* styling the input with an animated placeholder */
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;   /* in case the content of the placeholder is longer than the size of the input, hide it (as default HTML inputs do) */
+}
+
+.textInput--inputWrapper.animatedPlaceholder label {
+	/* override default styles */
+	font-weight: 300;
+	color: #595959;	/* this color for the animated placeholder fulfills the accessibility minimum contrast requirements */
+	padding-top: 2px;   /* necessary to keep the placeholder away from the top border in active view. */
+	line-height: 44px;	/* line height of the placeholder: height of the input - 2px of border - 2px of padding top */
+
+	position: absolute;
+	top: 1px;    /* 1px of top offset because of the top border of the input (otherwise the label would overlap the border in active view) */
+	left: 1px;   /* 1px of left offset because of the left border of the input (otherwise the label would overlap the border in active view) */
+
+	padding-left: 10px;	/* use padding to place the animated placeholder in exactly the same position as the default HTML placeholder */
+
+	background-color: transparent;  /* the placeholder has to be transparent in default mode or the cursor would be hidden */
+	transition: line-height 0.2s, font-size 0.2s, background-color 0.2s;	/* animate line-height, font-size and background-color */
+
+	z-index: 1;	/* necessary for the animated placeholder to be visible on the input */
+
+	white-space: nowrap;    /* in case the content of the placeholder is longer than the size of the input, don't let it split in two lines (as default HTML inputs do) */
+}
+.textInput--inputWrapper.animatedPlaceholder._active label {
+	line-height: 15px;
+	font-size: 12px;
+	background-color: white; /* background color is white in active state so that the top of the cursor is hidden under the label (to avoid overlapping in Safari) */
+}
+.textInput--inputWrapper.animatedPlaceholder._active._disabled label { /* make animated placeholder transparent if input is disabled, because the input background will be grey */
+	background-color: transparent;
+}
+
+.textInput--inputWrapper.animatedPlaceholder input {
+	/* animate padding-top */
+	padding-top: 5px;
+	padding-bottom: 5px;
+	transition: padding-top 0.2s;
+
+	position: relative;
+	z-index: 0;
+}
+.textInput--inputWrapper.animatedPlaceholder._active input {
+	padding-top: 17px;
+}
