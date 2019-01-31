@@ -7,6 +7,8 @@ Multi-step form powered by React. The form has three steps
 This is a purely front-end form, so submitting the form doesn't actually do anything.
 It just prints a message on screen.
 
+*NOTE*: If you clone this project, you will need to run `yarn` in the root directory in order to set up `node modules`. Then you can run `yarn start` to run the app.
+
 ----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
