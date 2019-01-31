@@ -1,9 +1,14 @@
+.textInput--inputWrapper {
+	position: relative;
+	margin:0 0 2rem 0;
+}
+
 .textInput--input {
-	
+	box-sizing: border-box;
 	width:100%;
 	height:48px;
 	padding:6px 4px 6px 10px;
-	margin:0 0 2rem 0;
+	margin: 0;
 	border:1px solid grey;
 	/*color: black;*/
 	background: white;
@@ -22,10 +27,38 @@
 .textInput--input.valid, .valid .textInput--input {
 	border-color: green;
 	color: green;
+	padding-right: 2rem;
+}
+.textInput--inputWrapper.valid:after {
+	display: block;
+	position: absolute;
+	content: '✔';
+	color: green;
+	right: 0.5rem;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform:    translateY(-50%);
+	-ms-transform:     translateY(-50%);
+	-o-transform:      translateY(-50%);
+	transform:         translateY(-50%);
 }
 .textInput--input.error, .error .textInput--input {
 	border-color: red;
 	color: red;
+	padding-right: 3rem;
+}
+.textInput--inputWrapper.error:after {
+	display: block;
+	position: absolute;
+	content: '✖';
+	color: red;
+	right: 0.5rem;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform:    translateY(-50%);
+	-ms-transform:     translateY(-50%);
+	-o-transform:      translateY(-50%);
+	transform:         translateY(-50%);
 }
 .textInput--input.readonly, .readonly .textInput--input, .textInput--input.disabled, .disabled .textInput--input, .textInput--input[disabled] {
 	border-color:#CDCDCF;

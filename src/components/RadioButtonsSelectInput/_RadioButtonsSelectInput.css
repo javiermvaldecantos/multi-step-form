@@ -22,6 +22,7 @@
 }
 
 .radioButtonsSelectInput--label {
+	box-sizing: border-box;
 	color: black;
 	border: 1px solid grey;
 	border-left: none;	/* remove border left to avoid double borders */
